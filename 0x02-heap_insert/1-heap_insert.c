@@ -38,7 +38,6 @@ heap_t *heap_insert(heap_t **root, int value)
  */
 void recursive_insert(heap_t **parent, heap_t *new)
 {
-	heap_t *temp;
 	heap_t *current_p;
 	char b_left = 'B';
 	char b_right = 'B';
@@ -67,16 +66,19 @@ void recursive_insert(heap_t **parent, heap_t *new)
 	}
 	else
 	{
-		temp = current_p;
 		new->parent = current_p->parent;
 		new->left = current_p->left;
 		new->right = current_p->right;
+		if (new->left)
+			new->left->parent = new;
+		if (new->right)
+			new->right->parent = new;
 		*parent = new;
-		temp->parent = NULL,
-		temp->left = NULL;
-		temp->right = NULL;
+		current_p->parent = NULL,
+		current_p->left = NULL;
+		current_p->right = NULL;
 		/* previous parent reallocation: */
-		recursive_insert(parent, temp);
+		recursive_insert(parent, current_p);
 	}
 }
 /**
