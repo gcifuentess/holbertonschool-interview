@@ -9,7 +9,7 @@ def minOperations(n):
         n: any int number
     Return: Returns an integer, if n is impossible to achieve, return 0
     '''
-    if type(n) is not int or n < 1:
+    if type(n) is not int or n < 2:
         return 0
     string = "H"
     copy = string
