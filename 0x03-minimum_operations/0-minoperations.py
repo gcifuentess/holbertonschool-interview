@@ -12,34 +12,31 @@ def minOperations(n):
     if type(n) is not int or n < 2:
         return 0
     string = "H"
-    copy = string
-    oper = 1
-    opt_div = optimal_divisor(n)
-    pos = len(opt_div) - 1
-    while len(string) < n:
-        if oper < opt_div[pos]:
-            string = string + copy
-        elif len(copy) == opt_div[pos]:
-            string = string + copy
-            if len(string) == opt_div[pos - 1]:
-                pos -= 1
-                copy = string
-                oper += 1
-        else:
-            copy = string
-        oper += 1
-    return oper
+    oper = 0
+    p_factors = prime_factors(n)
+    for factor in reversed(p_factors):
+        if factor == 1:
+            return oper
+        for n_paste in range(factor):
+            if n_paste == 0:
+                copy = string  # copy all
+            else:
+                string += copy  # paste
+            oper += 1
 
 
-def optimal_divisor(n):
-    '''Finds out optimal divisor of a positive integer'''
-    i = n - 1
-    divisors = [n + 1]
-    while i > 1:
+def prime_factors(n):
+    '''Finds out the prime factors of a positive integer
+    Args:
+        n: a positive integer
+    Returns: a list with the prime factors of n
+    '''
+    i = 2
+    prime_factors = [1]
+    while i <= n:
         if n % i == 0:
-            n = i
-            i = n - 1
-            divisors.append(n)
-        else:
-            i -= 1
-    return divisors
+            prime_factors.append(i)
+            n /= i
+            i = 1
+        i += 1
+    return prime_factors
