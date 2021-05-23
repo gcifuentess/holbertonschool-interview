@@ -34,7 +34,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
  * stabilize - stabilizes a sandpile
  * @grid: a sandpile
  *
- * Return: 's' if stable or 'u' if not
+ * Return: nothing
  */
 void stabilize(int grid[3][3])
 {
@@ -85,7 +85,7 @@ char check_stability(int grid[3][3])
 	for (i = 0; i < 3; i++)
 		for (j = 0; j < 3; j++)
 			if (grid[i][j] > 3)
-				return('u');
+				return ('u');
 	return ('s');
 }
 
