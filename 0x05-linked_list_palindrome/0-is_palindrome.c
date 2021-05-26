@@ -37,7 +37,10 @@ int is_palindrome(listint_t **head)
 	{
 		j = n - i - 1;
 		if (buffer[i] != buffer[j])
+		{
+			free(buffer);
 			return (0);
+		}
 	}
 	free(buffer);
 	return (1);
