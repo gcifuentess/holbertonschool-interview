@@ -8,8 +8,9 @@
  */
 int is_palindrome(listint_t **head)
 {
-	const listint_t *current, *respective;
+	const listint_t *current;
 	unsigned int n; /* number of nodes */
+	unsigned int *buffer;  /* temp array */
 	unsigned int pivot; /* pivot of the palindrome */
 	unsigned int i, j;
 
@@ -19,17 +20,23 @@ int is_palindrome(listint_t **head)
 	n = 0;
 	for (current = *head; current; current = current->next)
 		n++;
+
+	buffer = malloc(sizeof(n) * n);
+	if (!buffer)
+		return (1);
+
+	for (i = 0, current = *head; current; i++, current = current->next)
+		buffer[i] = current->n;
+
 	if (n % 2 == 0)
 		pivot = n / 2;
 	else
 		pivot = (n / 2) + 1;
 
-	for (i = 0, current = *head; i < pivot; i++, current = current->next)
+	for (i = 0; i < pivot; i++)
 	{
-		respective = current;
-		for (j = i; j < (n - i - 1); j++)
-			respective = respective->next;
-		if (current->n != respective->n)
+		j = n - i - 1;
+		if (buffer[i] != buffer[j])
 			return (0);
 	}
 	return (1);
