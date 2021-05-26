@@ -39,5 +39,6 @@ int is_palindrome(listint_t **head)
 		if (buffer[i] != buffer[j])
 			return (0);
 	}
+	free(buffer);
 	return (1);
 }
