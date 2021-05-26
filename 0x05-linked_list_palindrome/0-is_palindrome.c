@@ -14,7 +14,7 @@ int is_palindrome(listint_t **head)
 	unsigned int pivot; /* pivot of the palindrome */
 	unsigned int i, j;
 
-	if (!(*head))
+	if (!(*head) || (*head)->next == NULL)
 		return (1);
 
 	n = 0;
