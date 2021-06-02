@@ -10,7 +10,7 @@ def print_stats(total_size, codes_count):
         codes_count is a dict with the count for each code
     return: nothing
     '''
-    print("File size: {}".format(total_size))
+    print("File size: {:d}".format(total_size))
     for k, v in sorted(codes_count.items()):
         print("{}: {}".format(k, v))
 
@@ -39,6 +39,7 @@ try:
         count += 1
         if count % 10 == 0:
             print_stats(total_size, codes_count)
+    sys.stdout.flush()
 except KeyboardInterrupt:
     print_stats(total_size, codes_count)
     raise
