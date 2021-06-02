@@ -39,7 +39,7 @@ try:
         count += 1
         if count % 10 == 0:
             print_stats(total_size, codes_count)
-    sys.stdout.flush()
+    else:
+        print_stats(total_size, codes_count)
 except KeyboardInterrupt:
     print_stats(total_size, codes_count)
-    raise
