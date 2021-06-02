@@ -24,6 +24,8 @@ try:
     for line in sys.stdin:
         if val_str in line:
             split = line.split(' ')
+            if len(split) < 4:
+                continue
             try:
                 total_size += int(split[-1])
             except Exception:
@@ -39,3 +41,4 @@ try:
             print_stats(total_size, codes_count)
 except KeyboardInterrupt:
     print_stats(total_size, codes_count)
+    raise
