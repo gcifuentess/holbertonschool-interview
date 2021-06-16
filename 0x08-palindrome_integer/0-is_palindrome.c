@@ -21,9 +21,9 @@ int is_palindrome(unsigned long n)
 	nidx = 0;
 
 	/* loops  trough each position in n: */
-	for (nidx = 0; temp; nidx++)
+	for (nidx = 0; tmp; nidx++)
 	{
-		tmp = temp / 10;
+		tmp = tmp / 10;
 		if (left)
 			left = left * 10;
 		else
