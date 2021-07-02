@@ -77,7 +77,7 @@ void slide_and_merge(int *line, int start, int end, int step)
 		else
 		{
 			current = next;
-			line[idx] = current; /* sliding */
+			line[idx + step] = current; /* sliding */
 		}
 		idx += step;
 	}
