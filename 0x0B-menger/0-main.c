@@ -21,7 +21,6 @@ int main(int ac, char **av)
         return (EXIT_FAILURE);
     }
 
-    /*av[1] = "1";*/
     level = atoi(av[1]);
     menger(level);
 
