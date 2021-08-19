@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+'''0x10. Rain'''
 
 
 def rain(walls):
