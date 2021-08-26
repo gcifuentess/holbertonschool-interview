@@ -16,9 +16,9 @@ void heap_sort(int *array, size_t size)
 
 	sort(array, size);
 
-	for (last = size - 1; last > 1;)
+	for (last = size; last > 1;)
 	{
-		swap(array, size, &array[last], &array[0]);
+		swap(array, size, &array[0], &array[last - 1]);
 		sift_down(array, 0, --last, size);
 	}
 }
