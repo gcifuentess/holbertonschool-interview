@@ -38,7 +38,6 @@ int main(int ac, char **av)
 	return (0);
 }
 
-
 /**
  * check_arg - checks arg for non-digits
  * @arg: the argument to be checked
@@ -56,7 +55,6 @@ void check_arg(char *arg)
 			print_error();
 	}
 }
-
 
 /**
  * str_mult - multiplies two strings
@@ -106,7 +104,6 @@ char *str_mult(char *s1, char *s2)
 	return ((void *)mult);
 }
 
-
 /**
  * sums_for_mult - performs the sumations for the multiplication
  * @ls1: len of the first string (without last null value)
@@ -153,4 +150,56 @@ void print_error(void)
 		_putchar(error[i]);
 	}
 	exit(98);
+}
+
+/**
+ * _strlen - returns the length of a string
+ * @s: The original string
+ *
+ * Return: length of s.
+ */
+int _strlen(char *s)
+{
+	int length = 0, i;
+
+	for (i = 0; s[i] != '\0'; i++)
+		length = i + 1;
+
+	return (length);
+}
+
+/**
+ * _calloc - allocates memory for an array, using malloc.
+ * @nmemb: number of elements of the array.
+ * @size: size in bytes of each element of the array.
+ *
+ * Description: -The _calloc function allocates memory for an array
+ *               of nmemb elements of size bytes each and returns a
+ * pointer to the allocated memory.
+ *-The memory is set to zero.
+ *-If nmemb or size is 0, then _calloc returns NULL.
+ *-If malloc fails, then _calloc returns NULL
+ *
+ * Return: pointer to the allocated memory.
+ */
+void *_calloc(unsigned int nmemb, unsigned int size)
+{
+	void *ptr;
+	char *tmp_ptr;
+	unsigned int i;
+
+	if (nmemb == 0 || size == 0)
+		return (NULL);
+
+	ptr = malloc(nmemb * size);
+
+	if (!ptr)
+		return (NULL);
+
+	tmp_ptr = (char *)ptr;
+
+	for (i = 0; i < (nmemb * size); i++)
+		tmp_ptr[i] = 0;
+
+	return (ptr);
 }
