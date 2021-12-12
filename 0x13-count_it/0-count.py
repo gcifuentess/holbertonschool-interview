@@ -48,7 +48,8 @@ def count_words(subreddit, word_list, hot_list=[]):
             title = hot_list[i]
             for word in word_list_l:
                 dict_count[word] = (dict_count[word] +
-                                    title.lower().count(' ' + word + ' '))
+                                    title.lower().count(word))
+
         for k in sorted(dict_count, key=dict_count.get, reverse=True):
             if dict_count[k]:
                 print("{}: {}".format(k, dict_count[k]))
