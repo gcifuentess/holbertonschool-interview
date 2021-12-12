@@ -41,14 +41,14 @@ def count_words(subreddit, word_list, hot_list=[]):
             count_words(subreddit, word_list, hot_list)
 
     if counter == 1:  # Checks if we are in the first called func
-        word_list_l = [x.lower() for x in word_list]
+        word_list_l = [x.lower().strip() for x in word_list]
         dict_count = {x: 0 for x in word_list_l}
 
         for i in range(1, len(hot_list)):
             title = hot_list[i]
+            title_ws = title.lower().split()
             for word in word_list_l:
-                dict_count[word] = (dict_count[word] +
-                                    title.lower().count(word))
+                dict_count[word] += title_ws.count(word)
 
         for k in sorted(dict_count, key=dict_count.get, reverse=True):
             if dict_count[k]:
