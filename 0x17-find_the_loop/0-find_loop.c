@@ -24,6 +24,9 @@ listint_t *the_tortoise_and_the_hare(listint_t *head)
 	listint_t *tortoise, *hare, *flag, *broken, *actual;
 	int len, i;
 
+	if (!head)
+		return (NULL);
+
 	tortoise = head;
 	hare = tortoise->next;
 
