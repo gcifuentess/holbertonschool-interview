@@ -1,0 +1,4 @@
+File is present
+First line contains #!/usr/bin/python3
+Module is documented
+PEP8 validation
