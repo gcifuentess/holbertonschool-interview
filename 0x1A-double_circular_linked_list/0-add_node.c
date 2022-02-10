@@ -42,7 +42,7 @@ List *add_node_end(List **list, char *str)
 
 /**
  * add_node_begin - Add a new node to the beginning of a double circular linked
-                    list
+ *                  list
  * @list: pointer to head
  * @str: the string to copy into the new node
  *
