@@ -4,9 +4,9 @@
 #define MAX(x, y) ((x) > (y) ? (x) : (y))
 
 /**
- * bynary_tree_is_avl -  checks if a binary tree is a valid AVL Tree
+ * binary_tree_is_avl - checks if a binary tree is a valid AVL Tree
  *
- * @tree is a pointer to the root node of the tree to check
+ * @tree: is a pointer to the root node of the tree to check
  *
  * Return: 1 if tree is a valid AVL Tree, and 0 otherwise
  *
@@ -47,7 +47,7 @@ int avl_check(const binary_tree_t *tree, int min, int max, int *height)
 		return (0);
 
 	if (!avl_check(tree->left, min, tree->n, &h1) ||
-		!avl_check(tree->right, tree->n, max, &h2))
+	    !avl_check(tree->right, tree->n, max, &h2))
 		return (0);
 
 	*height = MAX(h1, h2) + 1;
