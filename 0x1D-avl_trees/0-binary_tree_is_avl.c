@@ -23,7 +23,7 @@ int binary_tree_is_avl(const binary_tree_t *tree)
 	if (!tree)
 		return (0);
 
-	return (is_avl(tree, INT_MIN, INT_MAX, &height));
+	return (avl_check(tree, INT_MIN, INT_MAX, &height));
 }
 
 /**
